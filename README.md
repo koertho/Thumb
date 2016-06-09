@@ -73,6 +73,12 @@ Firstly, make sure your cache directory is writable, then access the script like
         <td>0</td>
         <td>0 = Displays resized image as normal<br />1 = Displays original image file with the animation present</td>
     </tr>
+	<tr>
+        <td>quality</td>
+        <td>0 - 100</td>
+        <td>75</td>
+        <td>Sets the image quality for jpeg images.</td>
+    </tr>
 </table>
 
 ## Size Parameter

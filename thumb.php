@@ -24,6 +24,7 @@ $sharpen = isset($_GET['sharpen']) ? max(0, min(100, $_GET['sharpen'])) : 0;
 $gray = isset($_GET['gray']) ? max(0, min(1, $_GET['gray'])) : 0;
 $ignore = isset($_GET['ignore']) ? max(0, min(1, $_GET['ignore'])) : 0;
 $path = parse_url($src);
+$quality = isset($_GET['quality']) ? max(0, min(100, $_GET['quality'])) : 75;
 
 if (isset($path['scheme'])) {
     $base = parse_url('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
@@ -241,7 +242,7 @@ if (!file_exists($file_temp)) {
             if ($gray) {
                 imagefilter($im, IMG_FILTER_GRAYSCALE);
             }
-            imagejpeg($im, $file_temp, 100);
+            imagejpeg($im, $file_temp, $quality);
             break;
         case 3:
             imagefill($im, 0, 0, imagecolorallocatealpha($im, 0, 0, 0, 127));
